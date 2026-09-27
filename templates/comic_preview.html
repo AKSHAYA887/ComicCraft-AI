@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>{{ title }} - ComicCraft</title><link rel="stylesheet" href="/static/css/style.css"></head>
+<body>
+<header class="preview-header"><div class="logo">✨ ComicCraft</div><a href="/" class="back-btn">← Create Another</a></header>
+<main class="preview-container">
+<div class="preview-title"><div class="badge">YOUR AI GENERATED COMIC</div><h1>{{ title }}</h1><p>Your story has been transformed into a complete comic.</p></div>
+<div class="comic-book">
+{% for panel in layout %}
+<article class="comic-panel">
+<div class="panel-header"><span>PANEL {{ panel.panel_number }}</span><h2>{{ panel.title }}</h2></div>
+<div class="panel-image-container">{% if panel.image_path %}<img src="{{ panel.image_path }}" alt="{{ panel.title }}" class="panel-image">{% endif %}</div>
+<div class="panel-content">
+<p class="scene">{{ panel.scene_description }}</p>
+{% if panel.caption %}<div class="caption"><strong>Caption:</strong> {{ panel.caption }}</div>{% endif %}
+{% if panel.narration %}<div class="narration"><strong>Narration:</strong> {{ panel.narration }}</div>{% endif %}
+{% if panel.dialogue %}<div class="dialogue"><strong>💬 Dialogue:</strong> {{ panel.dialogue }}</div>{% endif %}
+</div>
+</article>
+{% endfor %}
+</div>
+<div class="download-section"><h2>🎉 Your Comic Is Ready!</h2><p>Download your complete comic as a PDF.</p>
+{% if pdf_path %}<a href="{{ pdf_path }}" class="download-btn" download>📄 Download Comic PDF</a>
+<a href="/export-success?pdf_path={{ pdf_path | urlencode }}" class="success-link">View Export Success Page</a>{% endif %}
+</div>
+</main>
+<footer><p>Made with ❤️ using ComicCraft AI</p></footer>
+</body>
+</html>

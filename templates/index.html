@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ComicCraft - AI Comic Creator</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<header class="hero">
+<nav class="navbar"><div class="logo">✨ ComicCraft</div><div class="nav-text">AI Comic Story Creator</div></nav>
+<div class="hero-content">
+<div class="badge">✨ Powered by Generative AI</div>
+<h1>Turn Your Imagination Into a Comic</h1>
+<p>Create stories, dialogues, characters and comic illustrations using AI.</p>
+</div>
+</header>
+<main class="container">
+<section class="card">
+<div class="section-heading"><span class="section-icon">🎨</span><div><h2>Create Your Comic</h2><p>Tell us your story idea and let ComicCraft do the magic.</p></div></div>
+{% if error %}<div class="error-box">{{ error }}</div>{% endif %}
+<form action="/generate" method="post" id="comicForm">
+<div class="form-group"><label for="story_prompt">Story Prompt</label><textarea id="story_prompt" name="story_prompt" placeholder="Example: A brave fox discovers a magical forest..." required></textarea></div>
+<div class="form-row">
+<div class="form-group"><label for="character_name">Main Character Name</label><input type="text" id="character_name" name="character_name" value="Alex" required></div>
+<div class="form-group"><label for="setting">Setting</label><select id="setting" name="setting"><option>Fantasy Forest</option><option>School</option><option>Space</option><option>Futuristic City</option><option>Village</option><option>Underwater World</option></select></div>
+</div>
+<div class="form-row">
+<div class="form-group"><label for="tone">Story Tone</label><select id="tone" name="tone"><option>Funny</option><option>Light-hearted</option><option>Dramatic</option><option>Adventure</option><option>Emotional</option><option>Mysterious</option></select></div>
+<div class="form-group"><label for="art_style">Art Style</label><select id="art_style" name="art_style"><option>Comic Book</option><option>Anime</option><option>Realistic</option><option>Cartoon</option><option>Pixel Art</option><option>Fantasy Art</option></select></div>
+</div>
+<div class="form-group"><label for="panel_count">Number of Panels</label><select id="panel_count" name="panel_count"><option value="3">3 Panels</option><option value="4">4 Panels</option><option value="5" selected>5 Panels</option><option value="6">6 Panels</option><option value="7">7 Panels</option><option value="8">8 Panels</option></select></div>
+<button type="submit" class="generate-btn" id="generateBtn"><span>✨ Generate My Comic</span></button>
+</form>
+</section>
+<section class="features">
+<div class="feature-card"><div class="feature-icon">🧠</div><h3>AI Story</h3><p>Generate structured comic storylines and dialogues.</p></div>
+<div class="feature-card"><div class="feature-icon">🎨</div><h3>AI Images</h3><p>Generate illustrations for every comic panel.</p></div>
+<div class="feature-card"><div class="feature-icon">📄</div><h3>PDF Export</h3><p>Download your completed comic as a PDF.</p></div>
+</section>
+</main>
+<footer><p>ComicCraft © 2026 | AI Comic Story Creator</p></footer>
+<script src="/static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+venv/
+env/
+comiccraft-env/
+.env
+static/panels/*.png
+static/panels/*.jpg
+static/panels/*.jpeg
+static/exports/*.pdf
+.vscode/
+.DS_Store
+Thumbs.db
